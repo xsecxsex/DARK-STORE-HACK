@@ -14,9 +14,10 @@
         }
 
         body {
-            background: url('vid.gif') no-repeat center center fixed;
+            /* تم تعديل الخلفية هنا لإلغاء الـ fixed على الموبايل لمنع تضخم الصورة وضمان ظهورها كاملة */
+            background: url('vid.gif') no-repeat center center;
             background-size: cover;
-            /* تعديل الـ min-height والـ padding لضمان ظهور المحتوى كاملاً دون اختفاء أجزاء منه في التليفونات */
+            background-attachment: scroll;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -81,11 +82,11 @@
 
         .login-container {
             background: rgba(10, 10, 10, 0.85);
-            padding: 25px 20px;
+            padding: 30px;
             border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            width: 95%;
-            max-width: 420px;
+            width: 90%;
+            max-width: 480px;
             text-align: center;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
             display: flex;
@@ -97,11 +98,10 @@
             margin: auto;
         }
 
-        /* تعديل حجم شاشة صورة دارك ستور عشان تظبط عالموبايل بالكامل */
         .img-glow-wrapper {
             position: relative;
             width: 100%;
-            max-width: 210px;
+            max-width: 290px;
             border-radius: 20px;
             padding: 3px;
             overflow: hidden;
@@ -141,7 +141,7 @@
             background-color: #33bfff;
             border-radius: 12px;
             padding: 6px 12px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
             justify-content: space-between;
