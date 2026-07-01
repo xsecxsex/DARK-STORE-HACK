@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARK STORE Hack - Ultra VIP</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: url('vid.gif') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* بار الـ Users Online مثبت أعلى يسار الموقع */
+        .users-online-badge {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.65);
+            border: 1.5px solid #33bfff;
+            padding: 8px 18px;
+            border-radius: 30px;
+            box-shadow: 0 0 15px rgba(51, 191, 255, 0.3);
+            direction: ltr;
+        }
+
+        .online-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #00ff00, 0 0 20px #00ff00;
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.9); opacity: 0.7; box-shadow: 0 0 8px #00ff00; }
+            50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 18px #00ff00, 0 0 25px #00ff00; }
+            100% { transform: scale(0.9); opacity: 0.7; box-shadow: 0 0 8px #00ff00; }
+        }
+
+        .users-text {
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            font-family: monospace;
+        }
+
+        .users-count {
+            color: #33bfff;
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 16px;
+            text-shadow: 0 0 5px #33bfff;
+            transition: all 0.5s ease-in-out;
+            margin-left: 5px;
+        }
+
+        .login-container {
+            background: rgba(10, 10, 10, 0.85);
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 90%;
+            max-width: 480px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(12px);
+        }
+
+        .img-glow-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 290px;
+            border-radius: 20px;
+            padding: 3px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 25px rgba(51, 191, 255, 0.95));
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .img-glow-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 180%;
+            height: 180%;
+            background: conic-gradient(transparent, transparent, #0055ff, #33bfff);
+            animation: rotateGlow 3s linear infinite;
+        }
+
+        .top-banner-img {
+            width: 100%;
+            height: auto;
+            border-radius: 17px;
+            background: #000;
+            position: relative;
+            z-index: 2;
+            display: block;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .input-group {
+            background-color: #33bfff;
+            border-radius: 12px;
+            padding: 6px 12px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid #1fa3e0;
+            width: 100%;
+            box-shadow: 0 0 15px rgba(51, 191, 255, 0.5), inset 0 0 10px rgba(51, 191, 255, 0.3);
+            transition: 0.3s ease-in-out;
+        }
+
+        .input-group:focus-within {
+            box-shadow: 0 0 30px rgba(51, 191, 255, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .input-group input {
+            background-color: #000000;
+            border: none;
+            color: #33bfff;
+            padding: 12px;
+            font-size: 16px;
+            width: 85%;
+            border-radius: 8px;
+            text-align: right;
+            outline: none;
+            font-weight: bold;
+        }
+
+        .input-group .icon {
+            color: #000000;
+            font-size: 20px;
+            width: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-login {
+            background: transparent;
+            border: 2px solid #33bfff;
+            color: white;
+            padding: 14px;
+            font-size: 18px;
+            border-radius: 14px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 15px;
+            transition: 0.3s;
+            font-weight: bold;
+            text-shadow: 0 0 5px #33bfff;
+        }
+
+        .btn-login:hover {
+            background-color: #33bfff;
+            color: black;
+            box-shadow: 0 0 20px rgba(51, 191, 255, 0.6);
+        }
+
+        .btn-buy {
+            background: transparent;
+            border: 2px solid #ff3333;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+        }
+
+        .btn-buy:hover {
+            background-color: #ff3333;
+            box-shadow: 0 0 20px rgba(255, 51, 51, 0.5);
+        }
+
+        .gif-container {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: #000000; 
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .btn-buy-gif {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            mix-blend-mode: screen;
+        }
+
+        /* تصميم المودال الرئيسي */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.94);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: #050505;
+            padding: 30px;
+            border-radius: 24px;
+            max-width: 550px;
+            width: 95%;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.95);
+            max-height: 95vh;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #aaa;
+            transition: 0.3s;
+            z-index: 10;
+        }
+        .close-btn:hover { color: white; }
+
+        .modal-title {
+            margin-bottom: 25px;
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(45deg, #fff, #33bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* كروت الأكواد */
+        .card-glow-wrapper {
+            position: relative;
+            border-radius: 18px;
+            padding: 3px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .card-glow-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 160%;
+            height: 250%;
+            animation: rotateGlow 4s linear infinite;
+        }
+
+        .glow-yellow::before { background: conic-gradient(transparent, transparent, transparent, #ffcc00); }
+        .glow-yellow { box-shadow: 0 0 15px rgba(255, 204, 0, 0.2); filter: drop-shadow(0 0 2px #ffcc00); }
+
+        .glow-green::before { background: conic-gradient(transparent, transparent, transparent, #00ff00); }
+        .glow-green { box-shadow: 0 0 15px rgba(0, 255, 0, 0.2); filter: drop-shadow(0 0 2px #00ff00); }
+
+        .glow-blue::before { background: conic-gradient(transparent, transparent, transparent, #0077ff); }
+        .glow-blue { box-shadow: 0 0 15px rgba(0, 119, 255, 0.2); filter: drop-shadow(0 0 2px #0077ff); }
+
+        .product-card {
+            background: #111;
+            border-radius: 15px;
+            padding: 15px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-main-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .product-card img {
+            width: 85px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            flex-grow: 1;
+            margin-right: 15px;
+            text-align: right;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .product-price {
+            font-weight: bold;
+            font-size: 15px;
+            color: #00ff00;
+        }
+
+        .action-buy-btn {
+            background: transparent;
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-yellow { border: 2px solid #ffcc00; color: #ffcc00; }
+        .btn-yellow:hover { background: #ffcc00; color: #000; box-shadow: 0 0 10px #ffcc00; }
+
+        .btn-green { border: 2px solid #00ff00; color: #00ff00; }
+        .btn-green:hover { background: #00ff00; color: #000; box-shadow: 0 0 10px #00ff00; }
+
+        .btn-blue { border: 2px solid #0077ff; color: #0077ff; }
+        .btn-blue:hover { background: #0077ff; color: #000; box-shadow: 0 0 10px #0077ff; }
+
+
+        /* ==================================================== */
+        /* تعديلات صفحة الدفع الإحترافية الفخمة DARK STORE */
+        /* ==================================================== */
+        .payment-page-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* تبديل الاسم وتوهجه نيون أزرق */
+        .payment-header-title {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+            text-shadow: 0 0 10px rgba(51, 191, 255, 0.8), 0 0 25px rgba(51, 191, 255, 0.5);
+            font-family: 'Arial Black', Gadget, sans-serif;
+        }
+
+        .payment-sub {
+            font-size: 12px;
+            letter-spacing: 6px;
+            color: #555;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        /* حاوية الرقم المحاطة بخيط ليد أزرق متحرك فخم جداً */
+        .wallet-glow-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 16px;
+            padding: 3px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            filter: drop-shadow(0 0 15px rgba(51, 191, 255, 0.4));
+        }
+
+        /* خيط الليد الأزرق الدوار الخاص بمستطيل الرقم */
+        .wallet-glow-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 300%;
+            background: conic-gradient(transparent, transparent, #0044ff, #33bfff);
+            animation: rotateGlow 4s linear infinite;
+        }
+
+        .wallet-box {
+            background: #0b0f19;
+            border-radius: 13px;
+            width: 100%;
+            padding: 22px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .wallet-label {
+            font-size: 13px;
+            color: #888;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .number-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            direction: ltr; /* لجعل الأيقونة على اليمين بالنسبة للأرقام */
+        }
+
+        .static-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #33bfff;
+            letter-spacing: 1.5px;
+            font-family: monospace;
+            text-shadow: 0 0 15px rgba(51, 191, 255, 0.6);
+        }
+
+        .copy-icon-btn {
+            background: rgba(51, 191, 255, 0.12);
+            border: 1px solid rgba(51, 191, 255, 0.3);
+            color: #33bfff;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.2s;
+            font-size: 20px;
+        }
+        .copy-icon-btn:hover {
+            background: #33bfff;
+            color: #000;
+            box-shadow: 0 0 15px #33bfff;
+            transform: scale(1.05);
+        }
+
+        /* حقول الإدخال الاحترافية الداكنة */
+        .pay-field-group {
+            width: 100%;
+            margin-bottom: 22px;
+            text-align: right;
+        }
+
+        .field-label {
+            font-size: 12px;
+            color: #777;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .pay-input {
+            width: 100%;
+            background: #090909;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 16px;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s ease-in-out;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .pay-input:focus {
+            border-color: #33bfff;
+            box-shadow: 0 0 15px rgba(51, 191, 255, 0.25);
+            background: #0d0d0d;
+        }
+
+        /* خانة الرفع المتقطعة المتناسقة */
+        .upload-wrapper {
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        .upload-label-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: rgba(51, 191, 255, 0.02);
+            border: 1px dashed rgba(51, 191, 255, 0.35);
+            padding: 18px;
+            border-radius: 12px;
+            color: #33bfff;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .upload-label-btn:hover {
+            background: rgba(51, 191, 255, 0.07);
+            border-color: #33bfff;
+            text-shadow: 0 0 8px #33bfff;
+        }
+
+        .upload-wrapper input[type="file"] {
+            display: none;
+        }
+
+        .file-status-text {
+            display: block;
+            font-size: 12px;
+            color: #00ff00;
+            margin-top: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* الزر النهائي الأزرق المتوهج بقوة */
+        .btn-submit-order {
+            width: 100%;
+            padding: 16px;
+            background: #33bfff;
+            border: none;
+            border-radius: 14px;
+            color: #000;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(51, 191, 255, 0.5);
+            transition: 0.3s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+        .btn-submit-order:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(51, 191, 255, 0.8);
+        }
+
+        .btn-back-to-list {
+            background: transparent;
+            border: none;
+            color: #555;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn-back-to-list:hover {
+            color: #fff;
+        }
+
+        /* رسالة التنبيه الفخمة عند النجاح */
+        .custom-alert {
+            display: none;
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(6, 6, 6, 0.98);
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 35px rgba(0, 255, 0, 0.5);
+            padding: 18px 35px;
+            border-radius: 16px;
+            z-index: 2000;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            width: 90%;
+            max-width: 480px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .custom-alert.show {
+            display: block;
+            top: 20px;
+        }
+
+        .alert-icon {
+            color: #00ff00;
+            font-size: 20px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- بار الـ Users Online مثبت أعلى اليسار والعلامة أولاً -->
+    <div class="users-online-badge">
+        <div class="online-dot"></div>
+        <span class="users-text">Users Online: <span id="onlineCount" class="users-count">2540</span></span>
+    </div>
+
+    <!-- رسالة التنبيه الفخمة بعد إرسال طلب الشراء -->
+    <div id="customAlert" class="custom-alert">
+        <span class="alert-icon">✅</span> تم ارسال طلب الشراء وسيتم التواصل معك
+    </div>
+
+    <div class="login-container">
+        <div class="img-glow-wrapper">
+            <img src="25290f32-7ea7-4373-bae0-b5770df1561f.jpg" alt="DARK STORE" class="top-banner-img">
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="userId" placeholder="ID">
+            <span class="icon">👤</span>
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="userPassword" placeholder="password">
+            <span class="icon">🔑</span>
+        </div>
+
+        <button class="btn-login" onclick="validateLogin()">تسجيل الدخول</button>
+        
+        <button class="btn-buy" onclick="openModal()">
+            <div class="gif-container">
+                <img src="robot.gif" alt="Robot" class="btn-buy-gif">
+            </div>
+            شراء كود تفعيل
+        </button>
+    </div>
+
+    <!-- المودال الرئيسي للتحكم بالواجهات الداكنة للبيع والدفع -->
+    <div id="buyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <!-- الجزء الأول: قائمة الأكواد المتاحة للبيع -->
+            <div id="codesListPage">
+                <div class="modal-title">قائمة الأكواد المتاحة للبيع</div>
+                
+                <div class="card-glow-wrapper glow-yellow">
+                    <div class="product-card">
+                        <div class="card-main-row">
+                            <img src="photo_2026-06-29_05-50-31.jpg" alt="CRASH">
+                            <div class="product-info">
+                                <div class="product-name" style="color: #ffcc00;">CRASH</div>
+                                <div class="product-price">السعر 400 جنيه</div>
+                            </div>
+                            <button class="action-buy-btn btn-yellow" onclick="goToPaymentPage()">شراء</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-glow-wrapper glow-green">
+                    <div class="product-card">
+                        <div class="card-main-row">
+                            <img src="photo_2026-06-29_05-50-26.jpg" alt="Apple">
+                            <div class="product-info">
+                                <div class="product-name" style="color: #00ff00;">Apple</div>
+                                <div class="product-price">السعر 300 جنيه</div>
+                            </div>
+                            <button class="action-buy-btn btn-green" onclick="goToPaymentPage()">شراء</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-glow-wrapper glow-blue">
+                    <div class="product-card">
+                        <div class="card-main-row">
+                            <img src="photo_2026-06-29_05-50-29.jpg" alt="Gems Mines">
+                            <div class="product-info">
+                                <div class="product-name" style="color: #0077ff;">Gems Mines</div>
+                                <div class="product-price">السعر 250 جنيه</div>
+                            </div>
+                            <button class="action-buy-btn btn-blue" onclick="goToPaymentPage()">شراء</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الجزء الثاني: صفحة الدفع الإحترافية الكاملة المحدثة بـ DARK STORE وليد أزرق للرقم -->
+            <div id="paymentPage" class="payment-page-container">
+                <div class="payment-header-title">DARK STORE</div>
+                <div class="payment-sub">PAYMENT</div>
+                
+                <!-- مستطيل الرقم محاط بخيط ليد أزرق نيون متحرك وانسيابي -->
+                <div class="wallet-glow-wrapper">
+                    <div class="wallet-box">
+                        <span class="wallet-label">حول المبلغ لهذا الرقم 💳</span>
+                        <div class="number-row">
+                            <button class="copy-icon-btn" onclick="copyPaymentNumber()">📋</button>
+                            <span class="static-number" id="targetNum">01011592047</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pay-field-group">
+                    <span class="field-label">TELEGRAM USERNAME</span>
+                    <input type="text" id="tgUser" class="pay-input" placeholder="username@">
+                </div>
+
+                <div class="pay-field-group">
+                    <span class="field-label">رقمك المحول منه</span>
+                    <input type="tel" id="senderNum" class="pay-input" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="01x-xxx-xxxx">
+                </div>
+
+                <div class="upload-wrapper">
+                    <label for="screenshotFile" class="upload-label-btn">
+                        📎 ارفع سكرين شوت التحويل
+                    </label>
+                    <input type="file" id="screenshotFile" accept="image/*" onchange="displayFileName()">
+                    <span id="fileNameStatus" class="file-status-text"></span>
+                </div>
+
+                <button class="btn-submit-order" onclick="submitOrder()">
+                    ✅ إرسال الطلب
+                </button>
+
+                <button class="btn-back-to-list" onclick="backToCodesList()">
+                    ↩️ رجوع
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // العداد التلقائي العشوائي لمراقبة المستخدمين أونلاين
+        function startOnlineCounter() {
+            const countElement = document.getElementById('onlineCount');
+            function updateCounter() {
+                const min = 2000;
+                const max = 10000;
+                const randomUsers = Math.floor(Math.random() * (max - min + 1)) + min;
+                countElement.innerText = randomUsers;
+            }
+            updateCounter();
+            setInterval(updateCounter, 5000);
+        }
+
+        window.onload = startOnlineCounter;
+
+        function openModal() { 
+            document.getElementById('buyModal').style.display = 'flex'; 
+            backToCodesList();
+        }
+
+        function closeModal() { 
+            document.getElementById('buyModal').style.display = 'none'; 
+            clearPaymentFields();
+        }
+
+        function goToPaymentPage() {
+            document.getElementById('codesListPage').style.display = 'none';
+            document.getElementById('paymentPage').style.display = 'flex';
+        }
+
+        function backToCodesList() {
+            document.getElementById('paymentPage').style.display = 'none';
+            document.getElementById('codesListPage').style.display = 'block';
+            clearPaymentFields();
+        }
+
+        function displayFileName() {
+            const fileInput = document.getElementById('screenshotFile');
+            const statusText = document.getElementById('fileNameStatus');
+            if(fileInput.files.length > 0) {
+                statusText.innerText = "تم اختيار ملف: " + fileInput.files[0].name;
+            } else {
+                statusText.innerText = "";
+            }
+        }
+
+        function copyPaymentNumber() {
+            const numText = document.getElementById('targetNum').innerText;
+            navigator.clipboard.writeText(numText).then(() => {
+                alert("تم نسخ رقم الوكيل : " + numText);
+            });
+        }
+
+        function clearPaymentFields() {
+            document.getElementById('tgUser').value = '';
+            document.getElementById('senderNum').value = '';
+            document.getElementById('screenshotFile').value = '';
+            document.getElementById('fileNameStatus').innerText = '';
+        }
+
+        function submitOrder() {
+            const tg = document.getElementById('tgUser').value;
+            const sender = document.getElementById('senderNum').value;
+            const fileInput = document.getElementById('screenshotFile');
+
+            if(tg.trim() === "") {
+                alert("برجاء كتابة يوزر التليجرام الخاص بك أولاً!");
+                return;
+            }
+            if(sender.length !== 11) {
+                alert("برجاء كتابة رقم المحفظة المحول منها بشكل صحيح (11 رقم)!");
+                return;
+            }
+            if(fileInput.files.length === 0) {
+                alert("برجاء رفع إسكرين شوت لعملية التحويل لإثبات طلبك!");
+                return;
+            }
+
+            closeModal();
+
+            // إظهار التنبيه الاحترافي الفخم في الشاشة الرئيسية
+            const alertBox = document.getElementById('customAlert');
+            alertBox.classList.add('show');
+
+            setTimeout(() => {
+                alertBox.classList.remove('show');
+            }, 5000);
+        }
+
+        function validateLogin() {
+            const id = document.getElementById('userId').value;
+            const pass = document.getElementById('userPassword').value;
+            if(id.trim() === "" || pass.trim() === "") {
+                alert("اكتب الـ ID والباسورد الأول!");
+                return;
+            }
+            alert("بيتم التحقق من الكود عبر السيرفر...");
+        }
+    </script>
+</body>
+</html>
