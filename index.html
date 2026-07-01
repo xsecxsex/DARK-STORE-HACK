@@ -2,7 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- تعديل الـ viewport لمنع التكبير التلقائي وضبط الأبعاد على الموبايل والأيفون بدقة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DARK STORE Hack - Ultra VIP</title>
     <style>
         * {
@@ -15,13 +16,17 @@
         body {
             background: url('vid.gif') no-repeat center center fixed;
             background-size: cover;
-            height: 100vh;
+            /* تعديل الـ min-height والـ padding لضمان ظهور المحتوى كاملاً دون اختفاء أجزاء منه في التليفونات */
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            overflow: hidden;
+            /* فتح الـ overflow للسماح بالاسكرول العمودي الخفيف جداً إذا كانت شاشة الهاتف صغيرة جداً */
+            overflow-y: auto;
+            overflow-x: hidden;
             position: relative;
+            padding: 20px 10px;
         }
 
         /* بار الـ Users Online مثبت أعلى يسار الموقع */
@@ -87,6 +92,9 @@
             flex-direction: column;
             align-items: center;
             backdrop-filter: blur(12px);
+            /* دعم متصفح سفاير لأجهزة الأيفون */
+            -webkit-backdrop-filter: blur(12px);
+            margin: auto;
         }
 
         .img-glow-wrapper {
@@ -240,6 +248,8 @@
             align-items: center;
             z-index: 1000;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 10px; /* يسيب مسافة أمان من الأطراف على التليفونات */
         }
 
         .modal-content {
@@ -247,12 +257,12 @@
             padding: 30px;
             border-radius: 24px;
             max-width: 550px;
-            width: 95%;
+            width: 100%; /* تعديل ليتوافق مع جميع شاشات الهاتف */
             border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.95);
-            max-height: 95vh;
-            overflow-y: auto;
+            max-height: 90vh; /* تحديد أقصى ارتفاع للمودال حتى لا يخرج خارج حدود الشاشة */
+            overflow-y: auto; /* السماح بالاسكرول الداخلي للكروت على الموبايل */
         }
 
         .close-btn {
